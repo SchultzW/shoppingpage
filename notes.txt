@@ -1,0 +1,42 @@
+//const http= require('http');
+
+const express=require('express');
+const bodyParser=require('body-parser');
+//creates an express appliaction
+//this app will store logic and other stuff behind the scences
+const app=express();
+
+
+//registers middleware that parsers bodies through a form
+app.use(bodyParser.urlencoded({extended:false}));
+
+//use adds us to add new middleware
+//next is a function. must call next() to allow program to progre
+//to next piece of middleware
+
+app.use('/add-product',(req,res,next)=>{
+    res.send('<form action="/product" method="POST"><input type="text" name="title"> <button type="submit">add product</button></form>')
+});
+
+//app.get is similiar as app use but only works for get requests
+app.get('/product',(req,res,next)=>{
+    console.log(req.body);
+    res.redirect('/');//used to rederict to another page
+})
+//the / folling app use is the route any time we go to our website  / the following middleware runs
+app.use('/',(req,res,next)=>{
+    res.send();//allows us to send a response. can attach a body something like html
+    //
+}) 
+
+app.use('/',(res,req,next)=>{
+    res.send()
+
+});
+//req are like funnles we go through them from one to another running through middleware
+//until you run into a response
+//const server=http.createServer(app);
+
+server.listen(3000);
+
+//middle
