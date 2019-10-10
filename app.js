@@ -1,12 +1,15 @@
+
 const path=require('path');
 const express=require('express');
-//imports router object from the routes folder.
-const adminRoutes=require('./routes/admin')
-const shopRoutes=require('./routes/shop');
 const bodyParser=require('body-parser');
+
 //creates an express appliaction
 //this app will store logic and other stuff behind the scences
 const app=express();
+
+//imports router object from the routes folder.
+const adminRoutes=require('./routes/admin')
+const shopRoutes=require('./routes/shop');
 
 //automattically consider routes in admin folder
 //still works like a folder.
@@ -19,7 +22,7 @@ app.use(shopRoutes);
 
 //catch all error message
 app.use((req,res,next)=>{
-    res.status(404).sendFile(__dirname,'../','views','404.html');
+    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
 });
 
 //req are like funnles we go through them from one to another running through middleware

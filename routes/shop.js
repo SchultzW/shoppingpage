@@ -2,6 +2,7 @@
 
 //for sending paths
 const path=require('path');
+const rootDir=require('../util/path');
 const express=require('express');
 const router=express.Router();
 
@@ -10,7 +11,7 @@ router.get('/',(req,res,next)=>{
     //res.send();//allows us to send a response. can attach a body something like html
 
     //path.join creates the path to the view folder and the shop.html ../ means go back
-    res.sendFile(path.join(__dirname,'../','views','shop.html'));
+    res.sendFile(path.join(rootDir,'views','shop.html'));
 });
 
 module.exports=router;

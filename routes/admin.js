@@ -1,6 +1,10 @@
+
 //routes that handle admin paths
 const express=require('express');
 const path=require('path');
+
+//rootdir is a var with the path to the root
+const rootDir=require('../util/path');
 //router is like mini expressout that is tied to main app
 //we can export the router for use elsewhere
 const Router=express.Router();
@@ -10,8 +14,8 @@ const Router=express.Router();
 //to next piece of middleware
 
 // /admin/add-product =>GET
-Router.get('/add-product',(req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','add-product.html'))
+Router.get('/add-product',(req,res,next)=>{    
+    res.sendFile(path.join(rootDir,'views','add-product.html'))
 });
 
 //app.get is similiar as app use but only works for get requests
