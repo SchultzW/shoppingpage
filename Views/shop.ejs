@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Product</title>
+    <title><%=pageTitle%></title>
     <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body>
@@ -18,15 +18,15 @@
     </header>
 
     <main>
-        <h1>Product</h1>
-        <p>List of products</p>
-            <!-- <div class="grid">
+        <% if(prods.length>0) { %>
+            <div class="grid">
+            <% for (let product of prods) { %>
             <article class="card product-item">
                 <header class="card__header">
-                    <h1 class="product__title">Great Book</h1>
+                    <h1 class="product__title"><%= product.title %></h1>
                 </header>
                 <div class="card__image">
-                    <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book">
+                    <img src="https://thumbs.dreamstime.com/z/old-book-28787592.jpg" alt="A Book">
                 </div>
                 <div class="card__content">
                     <h2 class="product__price">$19.99</h2>
@@ -36,7 +36,11 @@
                     <button class="btn">Add to Cart</button>
                 </div>
             </article>
-        </div> -->
+            <% } %>
+        </div>
+        <% } else { %>
+            <h1>No Products Found</h1>
+        <% } %>
     </main>  
 </body>
 </html>

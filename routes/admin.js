@@ -26,7 +26,11 @@ Router.get('/add-product',(req,res,next)=>{
 
 // /admin/add-product =>POST
 Router.post('/add-product',(req,res,next)=>{
-    products.push({title: req.body.title});
+    res.render("add-product",{pageTitle:"Add Product",
+    path:'/admin/add-product',
+    formCSS:true,
+    productCSS:true
+});
 
     res.redirect('/');//used to rederict to another page
 })
