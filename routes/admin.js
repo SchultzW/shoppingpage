@@ -9,6 +9,9 @@ const rootDir=require('../util/path');
 //we can export the router for use elsewhere
 const Router=express.Router();
 
+//temp variable to hold info for the tut will be replaced later
+const products=[]
+
 //use adds us to add new middleware
 //next is a function. must call next() to allow program to progre
 //to next piece of middleware
@@ -23,10 +26,12 @@ Router.get('/add-product',(req,res,next)=>{
 
 // /admin/add-product =>POST
 Router.post('/add-product',(req,res,next)=>{
-    console.log(req.body);
+    products.push({title: req.body.title});
+
     res.redirect('/');//used to rederict to another page
 })
 
 
 //the get routes are registered to this router
-module.exports=Router;
+exports.routes=Router;
+exports.products=products;
