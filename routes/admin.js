@@ -1,42 +1,17 @@
+const path = require('path');
 
-//routes that handle admin paths
-const express=require('express');
-const path=require('path');
+const express = require('express');
 
-//rootdir is a var with the path to the root
-const rootDir=require('../util/path');
-//router is like mini expressout that is tied to main app
-//we can export the router for use elsewhere
-const Router=express.Router();
+const adminController = require('../controllers/adminController');
 
-//temp variable to hold info for the tut will be replaced later
-const products=[]
+const router = express.Router();
 
-//use adds us to add new middleware
-//next is a function. must call next() to allow program to progre
-//to next piece of middleware
+// /admin/add-product => GET
+router.get('/add-product', adminController.getAddProduct);
 
-// /admin/add-product =>GET
-Router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {
-      pageTitle: 'Add Product',
-      path: '/admin/add-product',
-      formsCSS: true,
-      productCSS: true,
-      activeAddProduct: true
-    });
-  });
+router.get('/products',adminController.getAddProduct);
 
-//app.get is similiar as app use but only works for get requests
-//can use same name because one is get and other is post
+// /admin/add-product => POST
+router.post('/add-product', adminController.postAddProduct);
 
-// /admin/add-product =>POST
-Router.post('/add-product', (req, res, next) => {
-    products.push({ title: req.body.title });
-    res.redirect('/');
-  });
-
-
-//the get routes are registered to this router
-exports.routes=Router;
-exports.products=products;
+module.exports = router;

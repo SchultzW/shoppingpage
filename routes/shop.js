@@ -1,33 +1,18 @@
-//routes for what the user sees
+const path = require('path');
 
-//for sending paths
-const path=require('path');
-const rootDir=require('../util/path');
-const express=require('express');
-const router=express.Router();
-const adminData=require('./admin');
+const express = require('express');
 
-//the / folling app use is the route any time we go to our website  / the following middleware runs
-router.get('/',(req,res,next)=>{
-        //old stuff being replaced by new way
-        //console.log(adminData.products);
-        //res.send();//allows us to send a response. can attach a body something like html
+const shopController = require('../controllers/shopController');
 
-        //path.join creates the path to the view folder and the shop.html ../ means go back
-        //res.sendFile(path.join(rootDir,'views','shop.html'));
+const router = express.Router();
 
-        const products=adminData.products;
-        //use default templating engine to render the view
-        //hasproducts,activeshop,productcss,layout are for handle bars
-        res.render('shop',{
-                prods:products,
-                pageTitle:'shop',
-                path:'/',
-                hasProducts: products.length>0,
-                activeShop:true,
-                productCSS:true
-                
-        });//pass JS object mapped to products
-});
+//register routes
+router.get('/', shopController.getIndex);
 
-module.exports=router;
+router.get('/products',shopController.getProducts);
+
+router.get('/cart',shopController.getCart);
+
+router.get('/checkout',shopController.getCheckout);
+
+module.exports = router;
