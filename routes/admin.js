@@ -17,19 +17,24 @@ const products=[]
 //to next piece of middleware
 
 // /admin/add-product =>GET
-Router.get('/add-product',(req,res,next)=>{    
-    res.sendFile(path.join(rootDir,'views','add-product.html'))
-});
+Router.get('/add-product', (req, res, next) => {
+    res.render('add-product', {
+      pageTitle: 'Add Product',
+      path: '/admin/add-product',
+      formsCSS: true,
+      productCSS: true,
+      activeAddProduct: true
+    });
+  });
 
 //app.get is similiar as app use but only works for get requests
 //can use same name because one is get and other is post
 
 // /admin/add-product =>POST
-Router.post('/add-product',(req,res,next)=>{
-    products.push({title: req.body.title});
-
-    res.redirect('/');//used to rederict to another page
-})
+Router.post('/add-product', (req, res, next) => {
+    products.push({ title: req.body.title });
+    res.redirect('/');
+  });
 
 
 //the get routes are registered to this router

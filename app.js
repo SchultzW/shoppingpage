@@ -3,14 +3,19 @@ const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
 
-//set global config value
-app.set('view engine','pug');
-//explicitly tells app where to look for views. Default is views so dont actually need to do this just fyi
-app.set('views','views')
+
 
 //creates an express appliaction
 //this app will store logic and other stuff behind the scences
 const app=express();
+
+////////////////view engine info/////////////////////////////////////////////
+//app.engine('handlebars',expressHbs({layoutDir:'views/layouts',defaultLayout:'main-layout'}));//func that initilized engine and then assign it
+//app.set('view engine','pug');
+app.set('view engine','ejs');
+//explicitly tells app where to look for views. Default is views so dont actually need to do this just fyi
+app.set('views','views')
+//////////////////////////////////////////////////////////////
 
 //staticialy served means not handled by express or middleware
 //directly fowarded to file system.
@@ -32,7 +37,7 @@ app.use(shopRoutes);
 
 //catch all error message
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
+    res.status(404).render('404',{pageTitle:'Page Not Found'});
 });
 
 //req are like funnles we go through them from one to another running through middleware

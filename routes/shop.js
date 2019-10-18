@@ -18,7 +18,16 @@ router.get('/',(req,res,next)=>{
 
         const products=adminData.products;
         //use default templating engine to render the view
-        res.render('shop',{prods:products,docTitle:'shop'});//pass JS object mapped to products
+        //hasproducts,activeshop,productcss,layout are for handle bars
+        res.render('shop',{
+                prods:products,
+                pageTitle:'shop',
+                path:'/',
+                hasProducts: products.length>0,
+                activeShop:true,
+                productCSS:true
+                
+        });//pass JS object mapped to products
 });
 
 module.exports=router;
