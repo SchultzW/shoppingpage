@@ -2,7 +2,6 @@
 const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
-//const expressHbs=require('express-handlebars')
 
 
 
@@ -10,7 +9,6 @@ const bodyParser=require('body-parser');
 //this app will store logic and other stuff behind the scences
 const app=express();
 
-//set global config value
 ////////////////view engine info/////////////////////////////////////////////
 //app.engine('handlebars',expressHbs({layoutDir:'views/layouts',defaultLayout:'main-layout'}));//func that initilized engine and then assign it
 //app.set('view engine','pug');
