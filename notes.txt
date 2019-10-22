@@ -2,3 +2,13 @@ Nodejs is used to run js without a browser
 
 expressjs is a framework that adds utility and tools and helps us build out app.
 express helps with handling request and routing
+
+/////
+query parameter is added to url with ? and key value pair ie edit=ture
+multiple params are seperated with &
+everything up to ? is the route
+query selector is part of req
+
+/////
+edit and add prod page use same html just rendered differently based on 
+what is being passed in query param
