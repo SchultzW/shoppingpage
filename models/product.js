@@ -49,6 +49,16 @@ module.exports = class Product {
     });
   }
 
+  static deleteById(id){
+    getProductsFromFile(products=>{
+      const updatedProducts=products.filter(prod=>prod.id!==id);//if id is != do i keep it. Filter creates new array
+
+      fs.writeFile(p,JSON.stringify(updatedProducts),err=>{
+        if(!err)
+      })
+    });
+  }
+
   static findById(id,cb){
     getProductsFromFile(products=>{
       const product=products.find(p=>p.id===id);
