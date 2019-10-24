@@ -16,15 +16,15 @@ router.get('/products',shopController.getProducts);
 router.get('/products/:productId',shopController.getProduct);//so express wont look for route but instead any string or number (/products/ID33)
 //must got at end or may trigger other routes
 
-router.get('/cart',shopController.getCart);
+router.get('/cart', shopController.getCart);
 
-router.post('/cart',shopController.postCart);
-
-router.get('/cart',shopController.getCart);
+router.post('/cart', shopController.postCart);
 
 router.get('/checkout',shopController.getCheckout);
 
 router.get('/orders',shopController.getOrders);
+
+router.post('/cart-delete-item', shopController.postCartDeleteProduct);
 
 
 
