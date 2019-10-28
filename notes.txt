@@ -2,17 +2,14 @@ Nodejs is used to run js without a browser
 ////**************************************************************************////
 expressjs is a framework that adds utility and tools and helps us build out app.
 express helps with handling request and routing
-
 ////**************************************************************************////
 query parameter is added to url with ? and key value pair ie edit=ture
 multiple params are seperated with &
 everything up to ? is the route
 query selector is part of req
-
 ////**************************************************************************////
 edit and add prod page use same html just rendered differently based on 
 what is being passed in query param
-
 ////**************************************************************************////
 to add new functionality to site add delte etc
 *need post (sending data) or get req (sending views) 
@@ -20,3 +17,9 @@ to add new functionality to site add delte etc
 *update controller with new action
 ////**************************************************************************////
 with posts you can use hidden input form to pass data through the body
+////**************************************************************************////
+no sql has no shcema no relations
+////**************************************************************************////
+promise to work with async code no nested code monsters
+////**************************************************************************////
+Sequelize is a object relational mapping library that helps us not need to write sql

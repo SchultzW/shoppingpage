@@ -1,0 +1,11 @@
+routes folder holds our routes our routes are made up of an 
+1 express router
+2 the route (shop/product)
+3 the controller action (postAddProd)
+
+our controllers pages export controller actions these are things that communicate with the db and site
+adding stuff to db or retrieve stuff and rendering it to a page
+
+our model contains our classes and our class methods. (ie save)
+
+write method in model>add to controller>hook up in router
