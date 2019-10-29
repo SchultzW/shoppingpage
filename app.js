@@ -19,7 +19,7 @@ app.set('views','views')
 const adminRoutes=require('./routes/admin')
 const shopRoutes=require('./routes/shop');
 
-const  User=require('./models/user');
+const User=require('./models/user');
 //staticialy served means not handled by express or middleware
 //directly fowarded to file system.
 //we need this to access css files
@@ -31,9 +31,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use((req,res,next)=>{
     User.findById('5db639dcd6142c41e88cb954')
     .then(user=>{
-        req.user=user;
+        console.log('user:'+user);
+        req.user=new User(user.name,user.email,user.cart,user._id);//store user in req so we can do stuff with it ie req.user.id
         next();
     })
+    .catch(err => console.log(err));
 })
 
 

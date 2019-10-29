@@ -16,7 +16,7 @@ exports.getAddProduct = (req, res, next) => {
     const imageUrl=req.body.imageUrl;
     const price=req.body.price;
     const description=req.body.description;
-    const product=new Product(title,imageUrl,description,price,null,req.user._id);
+    const product=new Product(title,price,description,imageUrl,null,req.user._id);//null is for prodID
     product.save()
     .then(result=>{
       res.redirect('/admin/products');
@@ -27,7 +27,7 @@ exports.getAddProduct = (req, res, next) => {
   };
 
   exports.getEditProduct = (req, res, next) => {
-    const editMode=req.query.edit; //for query selectory
+    const editMode=req.query.edit; 
     if(!editMode)
     {
        return res.redirect('/')

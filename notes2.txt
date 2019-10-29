@@ -9,3 +9,5 @@ adding stuff to db or retrieve stuff and rendering it to a page
 our model contains our classes and our class methods. (ie save)
 
 write method in model>add to controller>hook up in router
+
+mongodb stores id as objectID so strings need to be convted to them
