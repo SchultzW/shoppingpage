@@ -6,6 +6,8 @@ const db=require('./util/database');
 const errorController=require('./controllers/error');
 
 const mongoConnect=require('./util/database').mongoConnect;
+
+//const mongoose=
 //creates an express appliaction
 //this app will store logic and other stuff behind the scences
 const app=express();

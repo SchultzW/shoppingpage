@@ -11,3 +11,6 @@ our model contains our classes and our class methods. (ie save)
 write method in model>add to controller>hook up in router
 
 mongodb stores id as objectID so strings need to be convted to them
+
+if mongodb returns multiple iteams it returns a cursor and you must use next
+to go through it to find what you want
