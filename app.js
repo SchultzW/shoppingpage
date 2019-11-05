@@ -2,12 +2,12 @@ const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
 
-const db=require('./util/database');
+//const db=require('./util/database');
 const errorController=require('./controllers/error');
 
-const mongoConnect=require('./util/database').mongoConnect;
 
-//const mongoose=
+
+const mongoose=require('mongoose');
 //creates an express appliaction
 //this app will store logic and other stuff behind the scences
 const app=express();
@@ -31,10 +31,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 
 app.use((req,res,next)=>{
-    User.findById('5db639dcd6142c41e88cb954')
+    User.findById('5dc0cbd724e18749c0afb3e2')
     .then(user=>{
-        console.log('user:'+user);
-        req.user=new User(user.name,user.email,user.cart,user._id);//store user in req so we can do stuff with it ie req.user.id
+        req.user=user;
         next();
     })
     .catch(err => console.log(err));
@@ -57,10 +56,27 @@ app.use(errorController.get404);
 //until you run into a response
 //const server=http.createServer(app);
 
-mongoConnect(()=>{
+mongoose.connect('mongodb+srv://admin:notapassword@cluster0-ghhtq.mongodb.net/shop?retryWrites=true&w=majority').then(
+    result=>{
+        User.findOne().then(user=>{
+            if(!user){
+                const user=new User({
+                    name:'Will',
+                    email:'Will@will.com',
+                    cart:{
+                        items:[]
+                    }
+                });
+                user.save();
+            }
+        })
     
-    app.listen(3000);
-});
+        app.listen(3000);  
+    })
+    .catch(err => console.log(err));
+    
+
+
 
 
 //middle

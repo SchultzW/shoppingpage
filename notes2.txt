@@ -14,3 +14,5 @@ mongodb stores id as objectID so strings need to be convted to them
 
 if mongodb returns multiple iteams it returns a cursor and you must use next
 to go through it to find what you want
+
+mongoose is a object data model library that makes things convient
