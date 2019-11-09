@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-//create new schema for moongoose. 
+//create new schema for moongoose. /
 //what does a product look like? a blueprint
 const Schema=mongoose.Schema;
 
@@ -28,5 +28,5 @@ const productSchema=new Schema({
 
 });
 
-
+//export model used to connect a schema with a name
 module.exports=mongoose.model('Product',productSchema);

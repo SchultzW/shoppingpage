@@ -1,11 +1,9 @@
 const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
-
+//
 //const db=require('./util/database');
 const errorController=require('./controllers/error');
-
-
 
 const mongoose=require('mongoose');
 //creates an express appliaction
